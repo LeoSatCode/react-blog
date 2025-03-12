@@ -8,6 +8,7 @@ export const ContainerArticle = styled.article`
     border-radius: 5px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 1);
     padding: 15px;
+    margin-top: 50px;
     cursor: pointer;
 
     &:hover {
