@@ -17,7 +17,7 @@ const Body = () => {
           <SmallCard
             image={Image1}
             tags={["React", "Frontend", "Design"]}
-            date="March 15, 2025"
+            date="March 165 2025"
             title="Lorem Ipsum Dolor: Consectetur Adipiscing Elit Sed Tempor Nunc"
             readingTime="4 min read"
             description="Nullam tempus quam id lectus malesuada finibus. Proin volutpat est eu nulla tincidunt, dignissim elementum lacus elementum. Proin ut ante."
