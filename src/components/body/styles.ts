@@ -16,8 +16,6 @@ export const Main = styled.main`
   @media (max-width: 425px) {
     margin-top: 25px;
   }
-
- 
     
 `;
 
