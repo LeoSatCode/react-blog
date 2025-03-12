@@ -8,6 +8,11 @@
   src: url(../fonts/corethin.otf) format("opentype");
 }
 
+@font-face {
+  font-family: "Tulasi";
+  src: url(../fonts/tulasi.TTF) format("opentype");
+}
+
 @import "tailwindcss";
 
 :root {
@@ -17,8 +22,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #202025;
-    --foreground: #ededed;
+    --background: #efebe0;
+    --foreground: #efebe0;
   }
 }
 

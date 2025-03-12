@@ -8,7 +8,7 @@ export const Container = styled.header`
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-    background-color: #202025;
+    background-color: #1f1f1e;
 
     @media (max-width: 768px) {
         max-width: 100%; 
@@ -28,7 +28,7 @@ export const HeaderImg = styled.img`
 `;
 
 export const Wrapper = styled.div`
-    background-color: #202025;
+    background-color: #1f1f1e;
     width: 100%;
     height: 47px;
     display: flex;
@@ -66,7 +66,7 @@ export const Row = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-b#1f1f1e
 
     @media (max-width: 768px) {
         flex-wrap: wrap; 
