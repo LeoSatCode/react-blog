@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   ContainerArticle,
   TextContent,
@@ -14,51 +14,40 @@ import {
 } from "./styles";
 import Image from "next/image";
 import Link from "next/link";
-import { api } from "@/lib/api";
-import { News } from "@/@types/news";
 
-const Article = () => {
-  const [article, setArticle] = useState<News | null>(null);
+interface ArticleProps {
+  id: string;
+  title: string;
+  description: string;
+  image_url: string;
+  date: string;
+  tags: string;
+  read_time: string;
+}
 
-  useEffect(() => {
-    const fetchBigCard = async () => {
-      try {
-        const { data } = await api.get<News[]>("/news", {
-          params: {
-            select: "*",
-            is_big_card: "eq.true",
-          },
-        });
-
-        if (data && data.length > 0) {
-          setArticle(data[0]);
-        } else {
-          console.error("Nenhum BigCard encontrado.");
-        }
-      } catch (error) {
-        console.error("Erro ao buscar BigCard:", error);
-      }
-    };
-
-    fetchBigCard();
-  }, []);
-
-  if (!article) {
-    return <div>Carregando...</div>;
-  }
-
+const Article: React.FC<ArticleProps> = ({
+  id,
+  title,
+  description,
+  image_url,
+  date,
+  tags,
+  read_time,
+}) => {
   return (
     <ContainerArticle>
       <TextContent>
-        <Date>{article.date}</Date>
-        <Link href={`/materia/${article.id}`} passHref>
-          <Title>{article.title}</Title>
+        {/* Exibição dos dados do artigo */}
+        <Date>{date}</Date>
+        <Link href={`/materia/${id}`} passHref>
+          <Title>{title}</Title>
         </Link>
-        <ReadingTime>{article.read_time}</ReadingTime>
-        <Content>{article.description}</Content>
+        <ReadingTime>{read_time}</ReadingTime>
+        <Content>{description}</Content>
 
+        {/* Renderização de tags */}
         <TagsContainer>
-          {article.tags.split(",").map((tag, index) => (
+          {tags.split(",").map((tag, index) => (
             <Link key={index} href={`/tags/${tag.trim()}`} passHref>
               <TagButton>{tag.trim()}</TagButton>
             </Link>
@@ -66,8 +55,14 @@ const Article = () => {
         </TagsContainer>
       </TextContent>
 
+      {/* Renderização da imagem */}
       <ImageContent>
-        <Image src={article.image_url} alt={article.title} width={400} height={250} />
+        <Image
+          src={image_url}
+          alt={title}
+          width={400}
+          height={250}
+        />
       </ImageContent>
     </ContainerArticle>
   );

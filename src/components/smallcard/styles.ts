@@ -21,17 +21,17 @@ export const Card = styled.div`
   @media (max-width: 768px) {
     font-family: "Tulasi", sans-serif;
     padding: 10px;
-    margin-top: 50px;
+    margin-top: 20px;
   }
 
   @media (max-width: 425px) {
     padding: 8px;
-    margin-top: 100px;
+    margin-top: 65px;
   }
 
   @media (max-width: 375px) {
     padding: 8px;
-    margin-top: 120px;
+    margin-top: 60px;
   }
 
   @media (max-width: 320px) {
