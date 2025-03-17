@@ -30,7 +30,9 @@ const SmallCard: React.FC<SmallCardProps> = ({
 
       <TagsContainer>
         {tags.map((tag, index) => (
-          <TagButton key={index}>{tag}</TagButton>
+          <Link key={index} href={`/tags/${tag.trim()}`} passHref>
+            <TagButton>{tag.trim()}</TagButton>
+          </Link>
         ))}
       </TagsContainer>
 

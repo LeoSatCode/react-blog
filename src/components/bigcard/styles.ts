@@ -135,7 +135,7 @@ export const TagButton = styled.button`
     }
 
     @media (max-width: 425px) {
-        width: 47%;
+        
         text-align: center;
     }
 `;

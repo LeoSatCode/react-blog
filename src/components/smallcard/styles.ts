@@ -26,10 +26,15 @@ export const Card = styled.div`
 
   @media (max-width: 425px) {
     padding: 8px;
-    margin-top: 15px;
+    margin-top: 100px;
   }
 
   @media (max-width: 375px) {
+    padding: 8px;
+    margin-top: 120px;
+  }
+
+  @media (max-width: 320px) {
     padding: 8px;
     margin-top: 60px;
   }

@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, { useEffect, useState } from "react";
 import { Main, SmallCardsContainer } from "./styles";
@@ -6,6 +6,21 @@ import { Article } from "../bigcard";
 import { SmallCard } from "../smallcard";
 import { api } from "@/lib/api";
 import { News } from "@/@types/news";
+
+const shuffleEqualDates = (articles: News[]) => {
+  return articles.sort((a, b) => {
+    const dateA = new Date(a.date).getTime();
+    const dateB = new Date(b.date).getTime();
+
+    if (dateA !== dateB) {
+    
+      return dateB - dateA;
+    }
+
+   
+    return Math.random() - 0.5;
+  });
+};
 
 const Body = () => {
   const [smallCards, setSmallCards] = useState<News[]>([]);
@@ -23,7 +38,9 @@ const Body = () => {
         });
 
         if (data) {
-          setSmallCards(data);
+          
+          const shuffled = shuffleEqualDates(data);
+          setSmallCards(shuffled); 
         } else {
           console.error("Nenhum SmallCard encontrado.");
         }
@@ -38,6 +55,7 @@ const Body = () => {
   return (
     <Main>
       <Article />
+
       <SmallCardsContainer>
         {smallCards.map((card) => (
           <SmallCard

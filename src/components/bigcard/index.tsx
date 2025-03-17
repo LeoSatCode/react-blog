@@ -51,17 +51,21 @@ const Article = () => {
     <ContainerArticle>
       <TextContent>
         <Date>{article.date}</Date>
-        <Link href={`/materia/${article.id}`}>
+        <Link href={`/materia/${article.id}`} passHref>
           <Title>{article.title}</Title>
         </Link>
         <ReadingTime>{article.read_time}</ReadingTime>
         <Content>{article.description}</Content>
+
         <TagsContainer>
           {article.tags.split(",").map((tag, index) => (
-            <TagButton key={index}>{tag.trim()}</TagButton>
+            <Link key={index} href={`/tags/${tag.trim()}`} passHref>
+              <TagButton>{tag.trim()}</TagButton>
+            </Link>
           ))}
         </TagsContainer>
       </TextContent>
+
       <ImageContent>
         <Image src={article.image_url} alt={article.title} width={400} height={250} />
       </ImageContent>
