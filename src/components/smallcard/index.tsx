@@ -25,7 +25,9 @@ const SmallCard: React.FC<SmallCardProps> = ({
   return (
     <Card>
       <ImageContainer>
+      <Link href={`/materia/${id}`} passHref>
         <Image src={image} alt="Small card image" width={1769} height={799} />
+      </Link>
       </ImageContainer>
 
       <TagsContainer>
@@ -43,8 +45,11 @@ const SmallCard: React.FC<SmallCardProps> = ({
       </Link>
 
       <ReadingTime>{readingTime}</ReadingTime>
-
+     
+      <Link href={`/materia/${id}`} passHref> 
       <Description>{description}</Description>
+      </Link>
+    
     </Card>
   );
 };

@@ -45,7 +45,7 @@ export const SidebarContainer = styled.div`
   flex-direction: column;
   width: 500px;
   height: auto;
-  margin-top: 45px;
+  margin-top: 95px;
   padding: 40px;
   flex-shrink: 0;
 

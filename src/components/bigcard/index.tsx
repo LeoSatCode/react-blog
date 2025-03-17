@@ -37,15 +37,17 @@ const Article: React.FC<ArticleProps> = ({
   return (
     <ContainerArticle>
       <TextContent>
-        {/* Exibição dos dados do artigo */}
+        
         <Date>{date}</Date>
         <Link href={`/materia/${id}`} passHref>
           <Title>{title}</Title>
         </Link>
         <ReadingTime>{read_time}</ReadingTime>
+        
+        <Link href={`/materia/${id}`} passHref>
         <Content>{description}</Content>
-
-        {/* Renderização de tags */}
+        </Link>
+       
         <TagsContainer>
           {tags.split(",").map((tag, index) => (
             <Link key={index} href={`/tags/${tag.trim()}`} passHref>
@@ -53,9 +55,10 @@ const Article: React.FC<ArticleProps> = ({
             </Link>
           ))}
         </TagsContainer>
+      
       </TextContent>
 
-      {/* Renderização da imagem */}
+      <Link href={`/materia/${id}`} passHref>
       <ImageContent>
         <Image
           src={image_url}
@@ -64,6 +67,7 @@ const Article: React.FC<ArticleProps> = ({
           height={250}
         />
       </ImageContent>
+      </Link>
     </ContainerArticle>
   );
 };
