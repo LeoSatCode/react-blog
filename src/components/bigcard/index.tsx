@@ -1,4 +1,6 @@
-import React from "react";
+'use client';
+
+import React, { useEffect, useState } from "react";
 import {
   ContainerArticle,
   TextContent,
@@ -11,35 +13,57 @@ import {
   TagButton,
 } from "./styles";
 import Image from "next/image";
-import Banner from "../../assets/images/static.png";
+import Link from "next/link";
+import { api } from "@/lib/api";
+import { News } from "@/@types/news";
 
 const Article = () => {
+  const [article, setArticle] = useState<News | null>(null);
+
+  useEffect(() => {
+    const fetchBigCard = async () => {
+      try {
+        const { data } = await api.get<News[]>("/news", {
+          params: {
+            select: "*",
+            is_big_card: "eq.true",
+          },
+        });
+
+        if (data && data.length > 0) {
+          setArticle(data[0]);
+        } else {
+          console.error("Nenhum BigCard encontrado.");
+        }
+      } catch (error) {
+        console.error("Erro ao buscar BigCard:", error);
+      }
+    };
+
+    fetchBigCard();
+  }, []);
+
+  if (!article) {
+    return <div>Carregando...</div>;
+  }
+
   return (
     <ContainerArticle>
       <TextContent>
-        <Date>March 12, 2025</Date>
-        <Title>
-          Dolor Sit Amet Inceptos Ultricies: Nova Era de Consectetur Adipiscing
-          Elit
-        </Title>
-        <ReadingTime>5 min read</ReadingTime>
-        <Content>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas non
-          nisl mauris. Vestibulum quis nisl neque. Vivamus nec est nulla. Fusce
-          et interdum sapien, at commodo dolor. Praesent hendrerit lorem euismod
-          odio fermentum, sed efficitur ligula accumsan. Sed auctor ornare est
-          ut pharetra. Pellentesque interdum, magna vitae pellentesque
-          dignissim, massa.
-        </Content>
+        <Date>{article.date}</Date>
+        <Link href={`/materia/${article.id}`}>
+          <Title>{article.title}</Title>
+        </Link>
+        <ReadingTime>{article.read_time}</ReadingTime>
+        <Content>{article.description}</Content>
         <TagsContainer>
-          <TagButton>React</TagButton>
-          <TagButton>NextJS</TagButton>
-          <TagButton>Design</TagButton>
-          <TagButton>UI</TagButton>
+          {article.tags.split(",").map((tag, index) => (
+            <TagButton key={index}>{tag.trim()}</TagButton>
+          ))}
         </TagsContainer>
       </TextContent>
       <ImageContent>
-        <Image src={Banner} alt="banner" />
+        <Image src={article.image_url} alt={article.title} width={400} height={250} />
       </ImageContent>
     </ContainerArticle>
   );

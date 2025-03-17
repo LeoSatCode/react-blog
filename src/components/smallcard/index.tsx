@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import {
   Card,
   ImageContainer,
@@ -13,6 +14,7 @@ import Image from 'next/image';
 import { SmallCardProps } from './types';
 
 const SmallCard: React.FC<SmallCardProps> = ({
+  id,
   image,
   tags,
   date,
@@ -22,9 +24,8 @@ const SmallCard: React.FC<SmallCardProps> = ({
 }) => {
   return (
     <Card>
-  
       <ImageContainer>
-        <Image src={image} alt="Small card image" />
+        <Image src={image} alt="Small card image" width={1769} height={799} />
       </ImageContainer>
 
       <TagsContainer>
@@ -35,7 +36,9 @@ const SmallCard: React.FC<SmallCardProps> = ({
 
       <Date>{date}</Date>
 
-      <Title>{title}</Title>
+      <Link href={`/materia/${id}`} passHref>
+        <Title>{title}</Title>
+      </Link>
 
       <ReadingTime>{readingTime}</ReadingTime>
 

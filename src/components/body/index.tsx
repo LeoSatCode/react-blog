@@ -1,46 +1,58 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import { Main, SmallCardsContainer } from "./styles";
 import { Article } from "../bigcard";
 import { SmallCard } from "../smallcard";
-
-import Image1 from "../../assets/images/static1.png";
-import Image2 from "../../assets/images/static2.png";
-import Image3 from "../../assets/images/static3.png";
+import { api } from "@/lib/api";
+import { News } from "@/@types/news";
 
 const Body = () => {
-  return (
-    <>
-      <Main>
-        <Article />
+  const [smallCards, setSmallCards] = useState<News[]>([]);
 
-        <SmallCardsContainer>
+  useEffect(() => {
+    const fetchSmallCards = async () => {
+      try {
+        const { data } = await api.get<News[]>("/news", {
+          params: {
+            is_big_card: "eq.false",
+            select: "*",
+            limit: 3,
+            order: "date.desc",
+          },
+        });
+
+        if (data) {
+          setSmallCards(data);
+        } else {
+          console.error("Nenhum SmallCard encontrado.");
+        }
+      } catch (error) {
+        console.error("Erro ao buscar SmallCards:", error);
+      }
+    };
+
+    fetchSmallCards();
+  }, []);
+
+  return (
+    <Main>
+      <Article />
+      <SmallCardsContainer>
+        {smallCards.map((card) => (
           <SmallCard
-            image={Image1}
-            tags={["React", "Frontend", "Design"]}
-            date="March 165 2025"
-            title="Lorem Ipsum Dolor: Consectetur Adipiscing Elit Sed Tempor Nunc"
-            readingTime="4 min read"
-            description="Nullam tempus quam id lectus malesuada finibus. Proin volutpat est eu nulla tincidunt, dignissim elementum lacus elementum. Proin ut ante."
+            key={card.id}
+            id={card.id}
+            image={card.image_url}
+            tags={card.tags.split(",")}
+            date={card.date}
+            title={card.title}
+            readingTime={`${card.read_time} min read`}
+            description={card.description}
           />
-          <SmallCard
-            image={Image2}
-            tags={["Next.js", "Web"]}
-            date="March 12, 2025"
-            title="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit."
-            readingTime="5 min read"
-            description="Praesent ultricies tortor et tempor ultrices. Nulla sollicitudin feugiat feugiat. Sed maximus mi nec massa efficitur, eget pellentesque nisi elementum."
-          />
-          <SmallCard
-            image={Image3}
-            tags={["JavaScript", "Programming"]}
-            date="March 10, 2025"
-            title="Etiam Eleifend Volutpat Nibh: Placerat Tortor in Mollis Magna"
-            readingTime="3 min read"
-            description="Morbi vestibulum pharetra lectus, ut scelerisque eros scelerisque eu. Vivamus varius magna a lorem interdum, eget cursus erat interdum. Vestibulum."
-          />
-        </SmallCardsContainer>
-      </Main>
-    </>
+        ))}
+      </SmallCardsContainer>
+    </Main>
   );
 };
 

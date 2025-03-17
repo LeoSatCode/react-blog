@@ -51,6 +51,7 @@ export const ImageContent = styled.div`
         margin-top: 20px;
         img {
             height: auto;
+            width: 630px;
         }
     }
 `;
