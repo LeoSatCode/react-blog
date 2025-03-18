@@ -49,11 +49,12 @@ export const Dot = styled.div<{ $isActive: boolean }>`
 `;
 
 export const TextContent = styled.div`
-  display: flex;
+  display: block;
   flex-direction: column;
   flex: 1;
   font-size: 0.875rem;
   line-height: 1.4;
+  height: 450px;
   color: #555;
 
   @media (max-width: 768px) {
@@ -94,6 +95,7 @@ export const ImageContent = styled.div`
 `;
 
 export const ReadingTime = styled.span`
+  display: block;
   font-family: "Tulasi", sans-serif;
   font-size: 14px;
   color: #888;
@@ -105,6 +107,7 @@ export const ReadingTime = styled.span`
 `;
 
 export const Title = styled.h2`
+  display: block;
   font-family: "Tulasi", sans-serif;
   font-size: 20px;
   font-weight: bold;
@@ -117,6 +120,7 @@ export const Title = styled.h2`
 `;
 
 export const Date = styled.span`
+  display: block;
   font-family: "Tulasi", sans-serif;
   font-size: 14px;
   color: #777;
@@ -128,6 +132,7 @@ export const Date = styled.span`
 `;
 
 export const Content = styled.p`
+  display: block;
   font-family: "Tulasi", sans-serif;
   font-size: 16px;
   line-height: 1.4;
@@ -174,26 +179,4 @@ export const TagButton = styled.button`
   @media (max-width: 425px) {
     text-align: center;
   }
-`;
-
-
-
-export const FadeWrapper = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100%; /* Mantém a altura total do wrapper */
-  display: flex;
-`;
-
-export const FadeContent = styled.div<{ $isActive: boolean }>`
-  flex: 1; /* Garante que todos os slides ocupem o mesmo espaço */
-  opacity: ${({ $isActive }) => ($isActive ? 1 : 0)};
-  transition: opacity 0.8s ease-in-out; /* Efeito de transição suave */
-  visibility: ${({ $isActive }) => ($isActive ? "visible" : "hidden")};
-  pointer-events: ${({ $isActive }) => ($isActive ? "all" : "none")};
-
-  display: flex;
-  position: relative;
-  width: 100%;
-  height: 100%;
 `;
