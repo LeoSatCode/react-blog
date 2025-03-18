@@ -4,6 +4,7 @@ export const ContainerArticle = styled.article`
   display: flex;
   align-items: flex-start;
   background: #efebe0;
+  height: 482px;
   color: #000000;
   border-radius: 5px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 1);
@@ -22,6 +23,28 @@ export const ContainerArticle = styled.article`
 
   @media (max-width: 425px) {
     margin-top: 30px;
+    height: 570px;
+  }
+`;
+
+export const CarouselContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 8px;
+`;
+
+export const Dot = styled.div<{ $isActive: boolean }>`
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: ${({ $isActive }) => ($isActive ? "antiquewhite" : "#ccc")};
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: antiquewhite;
   }
 `;
 
@@ -42,21 +65,30 @@ export const ImageContent = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 4;
+  flex: 6;
   margin-left: 15px;
 
   img {
-    width: 100%;
+    width: 1200px;
     height: 450px;
-    object-fit: cover;   
+    object-fit: cover;
+    
   }
 
   @media (max-width: 768px) {
     margin-left: 0;
     margin-top: 20px;
+
     img {
+      width: 700px;
       height: auto;
-      width: 630px;
+    }
+  }
+
+  @media (max-width: 425px) {
+    img {
+      width: 100%;
+      height: auto;
     }
   }
 `;
@@ -142,4 +174,26 @@ export const TagButton = styled.button`
   @media (max-width: 425px) {
     text-align: center;
   }
+`;
+
+
+
+export const FadeWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%; /* Mantém a altura total do wrapper */
+  display: flex;
+`;
+
+export const FadeContent = styled.div<{ $isActive: boolean }>`
+  flex: 1; /* Garante que todos os slides ocupem o mesmo espaço */
+  opacity: ${({ $isActive }) => ($isActive ? 1 : 0)};
+  transition: opacity 0.8s ease-in-out; /* Efeito de transição suave */
+  visibility: ${({ $isActive }) => ($isActive ? "visible" : "hidden")};
+  pointer-events: ${({ $isActive }) => ($isActive ? "all" : "none")};
+
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
 `;
