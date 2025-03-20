@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React, { useEffect, useState } from "react";
 import {
@@ -18,16 +18,15 @@ import { Footer } from "@/components/footer";
 import { SmallCard } from "@/components/smallcard";
 import Image from "next/image";
 import { api } from "@/lib/api";
-import { News } from "@/@types/news";
 
-const ClientMateria = ({ article, articleId }: { article: News; articleId: string }) => {
-  const [relatedCards, setRelatedCards] = useState<News[]>([]);
-  const [bigCard, setBigCard] = useState<News | null>(null);
+const ClientMateria = ({ article, articleId }) => {
+  const [relatedCards, setRelatedCards] = useState([]);
+  const [bigCard, setBigCard] = useState(null);
 
   useEffect(() => {
     const fetchBigCard = async () => {
       try {
-        const { data } = await api.get<News[]>("/news", {
+        const { data } = await api.get("/news", {
           params: {
             is_big_card: "eq.true",
           },
@@ -43,7 +42,7 @@ const ClientMateria = ({ article, articleId }: { article: News; articleId: strin
 
     const fetchRelatedCards = async () => {
       try {
-        const { data } = await api.get<News[]>("/news", {
+        const { data } = await api.get("/news", {
           params: {
             id: `neq.${articleId}`,
             select: "*",

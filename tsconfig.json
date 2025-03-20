@@ -8,20 +8,23 @@
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "typeRoots": ["./node_modules/@types", "./src/@types"],
+    "useUnknownInCatchVariables": true,
+    "strictNullChecks": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    },
     "plugins": [
       {
         "name": "next"
       }
-    ],
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/tags/[tagName]/ClientTagPage.jsx", "src/app/tags/[tagName]/page.jsx", "src/app/materia/[id]/ClientMateria.jsx", "src/app/materia/[id]/page.jsx"],
   "exclude": ["node_modules"]
 }

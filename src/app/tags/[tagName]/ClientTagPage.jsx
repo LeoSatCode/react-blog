@@ -1,15 +1,14 @@
-'use client';
+"use client";
 
 import React, { useState, useEffect } from "react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { SmallCard } from "@/components/smallcard";
 import { Container, Grid } from "./styles";
-import { News } from "@/@types/news";
 import { api } from "@/lib/api";
 
-const ClientTagPage = ({ tagName, articles }: { tagName: string; articles: News[] }) => {
-  const [filteredArticles, setFilteredArticles] = useState<News[]>(articles);
+const ClientTagPage = ({ tagName, articles }) => {
+  const [filteredArticles, setFilteredArticles] = useState(articles);
 
   useEffect(() => {
     if (!tagName) return;
