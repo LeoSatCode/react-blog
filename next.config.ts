@@ -1,10 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  reactStrictMode: true, // Se desejar manter o modo estrito
+  reactStrictMode: true,
   images: {
-    domains: ["i.postimg.cc"] // Adicione aqui o domínio permitido
+    domains: ["i.postimg.cc"],
+    unoptimized: true,
   },
+  output: "export",
 };
 
 export default nextConfig;
