@@ -4,8 +4,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "predeploy": "npm run build && next build && next export && npm run nojekyll",
-    "deploy": "gh-pages -d build && next build && next export && touch out/.nojekyll",
+    "predeploy": "npm run build && next build && npm run nojekyll",
+    "deploy": "gh-pages -d build && next build && touch out/.nojekyll",
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
