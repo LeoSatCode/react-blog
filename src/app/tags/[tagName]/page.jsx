@@ -12,11 +12,21 @@ export async function generateStaticParams() {
 }
 
 const TagPage = async ({ params }) => {
-  const { tagName } = params;
+  let { tagName } = params;
+
+  tagName = tagName.trim().toLowerCase();
 
   const { data } = await api.get("/news", {
     params: { tags: `ilike.%${tagName}%`, select: "*", order: "date.desc" },
   });
+
+  if (!data || data.length === 0) {
+    return (
+      <div>
+        <h1>Tag not found.</h1>
+      </div>
+    );
+  }
 
   return <ClientTagPage tagName={tagName} articles={data} />;
 };

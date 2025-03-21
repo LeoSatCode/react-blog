@@ -18,15 +18,15 @@ const MateriaPage = async ({ params }) => {
     });
 
     if (!data || data.length === 0) {
-      return <div>Matéria não encontrada.</div>;
+      return <div>Content not found.</div>;
     }
 
     const article = data[0]; 
 
     return <ClientMateria article={article} articleId={id} />;
   } catch (error) {
-    console.error("Erro ao carregar a matéria:", error);
-    return <div>Erro ao carregar a matéria.</div>;
+    console.error(error);
+    return <div>Error loading matter.</div>;
   }
 };
 

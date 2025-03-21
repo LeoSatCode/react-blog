@@ -26,12 +26,12 @@ export const Card = styled.div`
 
   @media (max-width: 425px) {
     padding: 8px;
-    margin-top: 65px;
+    margin-top: 25px;
   }
 
   @media (max-width: 375px) {
     padding: 8px;
-    margin-top: 60px;
+    margin-top: 90px;
   }
 
   @media (max-width: 320px) {
@@ -67,6 +67,7 @@ export const TagsContainer = styled.div`
 `;
 
 export const TagButton = styled.button`
+  font-family: "Inter", sans-serif;
   background: #1f1f1e;
   color: #ffffff;
   font-size: 0.75rem;

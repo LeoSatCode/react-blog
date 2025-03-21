@@ -36,7 +36,7 @@ const ClientMateria = ({ article, articleId }) => {
           setBigCard(data[0]);
         }
       } catch (error) {
-        console.error("Erro ao buscar o BigCard:", error);
+        console.error(error);
       }
     };
 

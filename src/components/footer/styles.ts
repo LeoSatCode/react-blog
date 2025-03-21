@@ -26,6 +26,7 @@ export const FooterContainer = styled.footer`
 `;
 
 export const FooterText = styled.p`
+  font-family: "Inter", sans-serif;
   font-size: 0.875rem;
   margin: 0;
 

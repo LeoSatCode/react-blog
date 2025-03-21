@@ -38,7 +38,7 @@ const Body = () => {
 
         setSmallCards(smallCardsData.data || []);
       } catch (error) {
-        console.error("Erro ao buscar os dados:", error);
+        console.error(error);
       }
     };
 

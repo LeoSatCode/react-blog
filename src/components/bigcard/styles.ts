@@ -17,13 +17,24 @@ export const ContainerArticle = styled.article`
   }
 
   @media (max-width: 768px) {
+    height: 560px;
     flex-direction: column;
     margin-top: 10px;
   }
 
   @media (max-width: 425px) {
-    margin-top: 30px;
+    margin-top: 2px;
     height: 570px;
+  }
+
+  @media (max-width: 375px) {
+    margin-top: 50px;
+    height: 100%;
+  }
+
+  @media (max-width: 375px) {
+    margin-top: 10px;
+    
   }
 `;
 
@@ -82,14 +93,26 @@ export const ImageContent = styled.div`
 
     img {
       width: 700px;
-      height: auto;
+      max-height: 250px;
     }
   }
 
   @media (max-width: 425px) {
     img {
       width: 100%;
-      height: auto;
+      max-height: 200px;
+    }
+ 
+  @media (max-width: 375px) {
+    img {
+      width: 350px;
+      max-height: 170px;
+    }
+
+  @media (max-width: 375px) {
+    img {
+      margin-bottom: 5px;
+      max-height: 130px;
     }
   }
 `;
@@ -158,6 +181,7 @@ export const TagsContainer = styled.div`
 `;
 
 export const TagButton = styled.button`
+  font-family: "Inter", sans-serif;
   background: #1f1f1e;
   color: #ffffff;
   font-size: 0.8rem;
