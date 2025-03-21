@@ -1,6 +1,6 @@
 # React Blog
 
-Este é um projeto criado com [Next.js](https://nextjs.org), utilizando [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app) como base. Além disso, foram integradas tecnologias modernas como React, TypeScript, Supabase API, e uma abordagem cuidadosa de design para garantir uma excelente experiência ao usuário.
+Este é um projeto criado com [Next.js](https://nextjs.org), utilizando [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app) como base. Além disso, foram integradas tecnologias modernas como React, JavaScript, TypeScript, Supabase API, e uma abordagem cuidadosa de design para garantir uma excelente experiência ao usuário.
 
 ## Descrição do Projeto
 
