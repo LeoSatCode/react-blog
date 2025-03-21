@@ -28,8 +28,10 @@ Tudo é gerenciado de forma dinâmica com a API do Supabase.
 
 ## Tecnologias Utilizadas
 
-- **Frontend**: ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB), ![Next](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white), ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black), ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white).
+- **Frontend**: ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![Next](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white).
+
 - **Backend**: ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white) API para gerenciamento dinâmico de conteúdo.
+
 - **Design**: Layout responsivo otimizado para diferentes dispositivos.
 
 ## Como Iniciar
@@ -42,6 +44,7 @@ Siga as etapas abaixo para rodar o projeto localmente:
    git clone <URL-DO-SEU-REPOSITÓRIO>
    cd react-blog
 2. Instale as dependências:
+   ```bash
    npm install
   # ou
   yarn install
@@ -49,6 +52,7 @@ Siga as etapas abaixo para rodar o projeto localmente:
   pnpm install
 
 3. Execute o servidor de desenvolvimento:
+   ```bash
    npm run dev
   # ou
   yarn dev
