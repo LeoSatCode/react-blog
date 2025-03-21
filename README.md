@@ -32,6 +32,7 @@ Tudo é gerenciado de forma dinâmica com a API do Supabase.
 
 - **Backend**: ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white) API para gerenciamento dinâmico de conteúdo.
 
+
 - **Design**: Layout responsivo otimizado para diferentes dispositivos.
 
 ## Como Iniciar
