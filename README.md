@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# React Blog
 
-## Getting Started
+Este é um projeto criado com [Next.js](https://nextjs.org), utilizando [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app) como base. Além disso, foram integradas tecnologias modernas como React, TypeScript, Supabase API, e uma abordagem cuidadosa de design para garantir uma excelente experiência ao usuário.
 
-First, run the development server:
+## Descrição do Projeto
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+O **React Blog** foi desenvolvido para facilitar a navegação e a leitura de notícias, com as seguintes funcionalidades:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Página Inicial**:
+  - Título do blog em destaque.
+  - Um carrossel exibindo até 4 BigCards de forma automática.
+  - Botões abaixo do carrossel para manipular e acessar notícias rapidamente.
+  - Três SmallCards adicionais para destacar mais conteúdos relevantes.
+- **Página da Notícia**:
+  - Apresentação completa do conteúdo da notícia.
+  - Três SmallCards adicionais para sugerir leituras relacionadas.
+- **Tags**:
+  - Cada card possui tags associadas para facilitar a busca e organização.
+  - Barra de pesquisa para encontrar notícias relacionadas a uma tag específica.
+  - Ao clicar em uma tag, o usuário é redirecionado a uma página com todas as notícias relacionadas.
+- **Responsividade**:
+  - Totalmente responsivo para desktops e dispositivos móveis, garantindo acessibilidade.
+- **Header e Footer**:
+  - O Header contém um ícone clicável para retornar à página inicial e uma barra de busca.
+  - O Footer fornece uma navegação consistente em todas as páginas.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Tudo é gerenciado de forma dinâmica com a API do Supabase.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tecnologias Utilizadas
 
-## Learn More
+- **Frontend**: ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB), ![Next](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white), ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black), ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white).
+- **Backend**: ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white) API para gerenciamento dinâmico de conteúdo.
+- **Design**: Layout responsivo otimizado para diferentes dispositivos.
 
-To learn more about Next.js, take a look at the following resources:
+## Como Iniciar
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Siga as etapas abaixo para rodar o projeto localmente:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Clone o repositório:
 
-## Deploy on Vercel
+   ```bash
+   git clone <URL-DO-SEU-REPOSITÓRIO>
+   cd react-blog
+2. Instale as dependências:
+   npm install
+  # ou
+  yarn install
+  # ou
+  pnpm install
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. Execute o servidor de desenvolvimento:
+   npm run dev
+  # ou
+  yarn dev
+  # ou
+  pnpm dev
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. Abra http://localhost:3000 no navegador para ver o resultado.
+
+Deploy
+
+A forma mais fácil de fazer o deploy do projeto é através da plataforma Vercel, criada pelos desenvolvedores do Next.js.
+Confira nossa documentação de deploy do Next.js para mais detalhes.
+
+   
