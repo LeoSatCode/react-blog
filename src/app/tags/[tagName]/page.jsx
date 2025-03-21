@@ -6,9 +6,11 @@ import ClientTagPage from "./ClientTagPage";
 export async function generateStaticParams() {
   const { data } = await api.get("/news");
 
-
   const tags = [...new Set(data.map((item) => item.tags.split(",")).flat())];
-  return tags.map((tagName) => ({ tagName }));
+
+  return tags.map((tagName) => ({
+    tagName: tagName.trim().toLowerCase(),
+  }));
 }
 
 const TagPage = async ({ params }) => {
@@ -28,7 +30,12 @@ const TagPage = async ({ params }) => {
     );
   }
 
-  return <ClientTagPage tagName={tagName} articles={data} />;
+  const originalTags = [...new Set(data.flatMap((item) => item.tags.split(",")))];
+  const originalTagName = originalTags.find(
+    (tag) => tag.toLowerCase() === tagName
+  );
+
+  return <ClientTagPage tagName={originalTagName || tagName} articles={data} />;
 };
 
 export default TagPage;

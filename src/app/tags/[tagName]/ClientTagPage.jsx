@@ -16,11 +16,15 @@ const ClientTagPage = ({ tagName, articles }) => {
     const fetchArticlesByTag = async () => {
       try {
         const { data } = await api.get("/news", {
-          params: { tags: `ilike.%${tagName}%`, select: "*", order: "date.desc" },
+          params: {
+            tags: `ilike.%${tagName}%`,
+            select: "*",
+            order: "date.desc",
+          },
         });
         setFilteredArticles(data);
       } catch (error) {
-        console.error("Erro ao buscar artigos por tag:", error);
+        console.error(error);
       }
     };
 
@@ -28,7 +32,7 @@ const ClientTagPage = ({ tagName, articles }) => {
   }, [tagName]);
 
   if (!filteredArticles.length) {
-    return <div>Carregando ou nenhum artigo encontrado...</div>;
+    return <div>Loading or no articles found....</div>;
   }
 
   return (
